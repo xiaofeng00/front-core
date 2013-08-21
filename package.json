@@ -1,0 +1,17 @@
+{
+  "name": "manyou",
+  "version": "0.0.1",
+  "author": ["dishuostec"],
+  "repository": {
+    "type": "git",
+    "url": "ssh://10.1.1.11/var/www/git/front"
+  },
+  "dependencies": {
+    "less": "latest",
+    "uglify-js": "latest"
+  },
+  "devDependencies": {
+    "jake": "latest",
+    "less-monitor": "latest"
+  }
+}

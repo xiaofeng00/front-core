@@ -1,0 +1,347 @@
+form {
+  margin: 0 0 @baseLineHeight;
+}
+
+fieldset {
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+legend {
+  display: block;
+  width: 100%;
+  padding: 0;
+  margin-bottom: @baseLineHeight;
+  font-size: @baseFontSize * 1.5;
+  line-height: @baseLineHeight * 2;
+  color: @textColor;
+  border: 0;
+  border-bottom: 1px solid @inputBorder;
+}
+
+input,
+textarea {
+  width: @inputWidth;
+}
+
+input[type="file"],
+input[type="image"],
+input[type="submit"],
+input[type="reset"],
+input[type="button"],
+input[type="radio"],
+input[type="checkbox"] {
+  width: auto;
+}
+
+label,
+input,
+button,
+select,
+textarea {
+  font-size: @baseFontSize;
+  font-weight: normal;
+  line-height: @baseLineHeight;
+  font-family: @baseFontFamily;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+select,
+textarea,
+input[type="text"],
+input[type="password"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="date"],
+input[type="month"],
+input[type="time"],
+input[type="week"],
+input[type="number"],
+input[type="email"],
+input[type="url"],
+input[type="search"],
+input[type="tel"],
+input[type="color"] {
+  display: inline-block;
+  height: @baseLineHeight;
+  padding: @inputVerticalPadding @inputHorizontalPadding;
+  margin-bottom: @baseLineHeight / 2;
+  font-size: @baseFontSize;
+  line-height: @baseLineHeight;
+  color: @textColor;
+  vertical-align: middle;
+}
+
+input {
+  _height: @inputHeight - 4;
+  _line-height: @inputHeight - 4;
+}
+
+textarea {
+  height: auto;
+}
+
+textarea,
+input[type="text"],
+input[type="password"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="date"],
+input[type="month"],
+input[type="time"],
+input[type="week"],
+input[type="number"],
+input[type="email"],
+input[type="url"],
+input[type="search"],
+input[type="tel"],
+input[type="color"] {
+  background-color: @inputBackground;
+  border: 1px solid @inputBorder;
+
+  &:focus {
+    outline: thin dotted \9; /* IE6-9 */
+  }
+}
+
+input,
+textarea {
+  _border: 1px solid @inputBorder;
+}
+
+select,
+input[type="file"] {
+  height: @inputHeight;
+  *margin-top: 4px;
+  line-height: @inputHeight;
+}
+
+select {
+  width: @inputWidth + (@inputHorizontalPadding * 2) + 2; // 基本行高 + 8px 横向边距 + 2px 边框
+  border: 1px solid @inputBorder;
+}
+
+.radio,
+.checkbox {
+  height: @baseLineHeight;
+  overflow: hidden;
+  position: relative;
+
+  @media @ie6-8 {
+    line-height: @baseLineHeight + 3;
+  }
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+  margin: 6px 0 0;
+  margin-top: 3px \9; /* IE8-9 */
+  line-height: normal;
+  
+  @media @ie6-8 {
+    margin-top: 1px;
+  }
+}
+
+.radio input[type="radio"],
+.checkbox input[type="checkbox"] {
+  .opacity(0);
+  .ie-opacity(0);
+  position: absolute;
+  left: 0;
+  bottom: 3px;
+  padding: 0;
+}
+
+.radio {
+  text-indent: 13px;
+
+  input[type="radio"] {
+    width: 13px;
+  }
+}
+
+.checkbox {
+  text-indent: 15px;
+
+  input[type="checkbox"] {
+    width: 15px;
+  }
+}
+
+// ie6
+@{selector-ie6} {
+  .checkbox,
+  .radio {
+    text-indent: 15px;
+
+    input {
+      width: auto;
+      border: 0 none;
+      position: absolute;
+      left: -4px;
+      bottom: -2px;
+      margin: 0;
+      padding: 0;
+    }
+  }
+}
+
+@icon-offset: 5px;
+@icon-size: 24px;
+
+.radio,
+.checkbox {
+  background-image: url(/assets/img/forms.png);
+  _background-image: none;
+  background-repeat: no-repeat;
+}
+
+.radio {
+  background-position: 0 @icon-offset;
+
+  &.checked {
+    background-position: 0 @icon-offset - @icon-size;
+  }
+}
+
+
+.checkbox {
+  background-position: 0 @icon-offset - @icon-size * 2;
+
+  &.checked {
+    background-position: 0 @icon-offset - @icon-size * 3;
+  }
+}
+
+
+.radio.inline,
+.checkbox.inline {
+  display: inline-block;
+  margin-top: @inputVerticalPadding + 1;
+  margin-bottom: 0;
+  margin-right: 6px;
+  vertical-align: middle;
+
+  @media @ie6-8 {
+    margin-top: @inputVerticalPadding;
+    *margin-top: @inputVerticalPadding - 1;
+  }
+}
+
+input[disabled],
+select[disabled],
+textarea[disabled],
+input[readonly],
+select[readonly],
+textarea[readonly] {
+  cursor: not-allowed;
+  background-color: @inputDisabledBackground;
+}
+
+input[type="radio"][disabled],
+input[type="checkbox"][disabled],
+input[type="radio"][readonly],
+input[type="checkbox"][readonly] {
+  background-color: transparent;
+}
+
+
+// Warning
+.control-group.warning {
+  .formFieldState(@warningText, @warningText, @warningBackground);
+}
+// Error
+.control-group.error {
+  .formFieldState(@errorText, @errorText, @errorBackground);
+}
+// Success
+.control-group.success {
+  .formFieldState(@successText, @successText, @successBackground);
+}
+// Success
+.control-group.info {
+  .formFieldState(@infoText, @infoText, @infoBackground);
+}
+
+// HTML5 invalid states
+// Shares styles with the .control-group.error above
+input:focus:invalid,
+textarea:focus:invalid,
+select:focus:invalid {
+  color: #b94a48;
+  border-color: #ee5f5b;
+  &:focus {
+    border-color: darken(#ee5f5b, 10%);
+    @shadow: 0 0 6px lighten(#ee5f5b, 20%);
+    .box-shadow(@shadow);
+  }
+}
+
+// HELP TEXT
+// ---------
+
+.help-block {
+  display: block;
+  margin-left: 16px;
+}
+
+.help-inline {
+  display: inline-block;
+  vertical-align: middle;
+  padding-left: 5px;
+}
+
+.form-horizontal {
+  input,
+  textarea,
+  select,
+  .help-inline {
+    display: inline-block;
+    margin-bottom: 0;
+    vertical-align: middle;
+  }
+
+  .control-group {
+    margin-bottom: @baseLineHeight;
+    .clearfix();
+  }
+
+  .control-label {
+    float: left;
+    width: @horizontalComponentOffset;
+    padding-top: @inputVerticalPadding + 1;
+    margin-bottom: @inputVerticalPadding + 1;
+    text-align: left;
+  }
+
+  .controls {
+    margin-left: @horizontalComponentOffset;
+  }
+}
+
+.form-action {
+  margin-top: 10px;
+}
+
+// 文本域
+.input-file {
+  display: inline-block;
+  position: relative;
+
+  input {
+    cursor: pointer;
+    margin: 0;
+    border-right: 0 none;
+    .border-radius(@buttonRadius 0 0 @buttonRadius);
+  }
+
+  .btn {
+    .border-radius(0 @buttonRadius @buttonRadius 0);
+  }
+}

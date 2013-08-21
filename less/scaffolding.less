@@ -1,0 +1,101 @@
+//
+// Scaffolding
+// --------------------------------------------------
+
+
+// Body reset
+// -------------------------
+
+body {
+  margin: 0;
+  font-family: @baseFontFamily;
+  font-size: @baseFontSize;
+  line-height: @baseLineHeight;
+  color: @textColor;
+  background: @bodyBackground url("/assets/img/bg.png");
+}
+
+// 列表
+// -------------------------
+ul,ol,li,dl,dt,dd{
+  margin: 0px;
+  padding: 0px;
+}
+li{
+  list-style: none;
+}
+
+// 链接
+// -------------------------
+
+a {
+  color: @linkColor;
+  text-decoration: none;
+
+  &:hover,
+  &:focus,
+  &:active,
+  &.hover,
+  &.focus,
+  &.active {
+    color: @linkColorHover;
+    text-decoration: underline;
+  }
+}
+
+// 容器
+// -------------------------
+.wrap {
+  width: 960px;
+  margin: 0 auto;
+}
+
+.box {
+  position: relative;
+  .border-radius(5px);
+  .box-shadow(~"0 0 @{shadow-length} rgba(0, 0, 0, 0.2)");
+  border: 2px solid #FFF;
+  background-color: @background;
+  padding: 12px 12px 0;
+  .css3pie;
+}
+
+.row {
+  position: relative;
+
+  &.height-patch {
+    overflow: hidden;
+    margin-top: -@shadow-length;
+    margin-left: -@shadow-length;
+    margin-right: -@shadow-length;
+    padding-left: @shadow-length;
+    padding-right: @shadow-length;
+    padding-top: @shadow-length;
+
+    .box {
+      @height: 99999px;
+      margin-bottom: -@height;
+      padding-bottom: @height;
+    }
+  }
+
+  &.height-patch-footer {
+    overflow: hidden;
+    margin-left: -@shadow-length;
+    margin-right: -@shadow-length;
+    padding-left: @shadow-length;
+    padding-right: @shadow-length;
+
+    @media @ie6-8 {
+      padding-bottom: @shadow-length;
+    }
+
+    .box {
+      margin-top: -9px;
+      height: 18px;
+      margin-bottom: @shadow-length;
+      padding-bottom: 0;
+    }
+  }
+}
+

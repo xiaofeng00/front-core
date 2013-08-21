@@ -1,0 +1,406 @@
+
+#cboxLoadedContent{
+  form,p,label,.control-group{
+    margin: 0px;
+  }
+  table,th,td{
+    padding: 0px;
+    background: @white;
+  }
+
+  p{
+    text-align: center; 
+  }
+
+  legend{
+    display: none;
+  }
+
+  label,.control-group{
+    padding: 0px;
+  }
+
+  .control-label{
+    text-align: right;
+  }
+
+  .radio{
+    input{
+      margin-right: 0px;
+      float: none;
+      width: 13px;
+    }
+  }
+
+  input.text{
+    height: 23px;
+    line-height: 23px;
+    padding: 0 5px;
+  }
+
+  .error,
+  .prompt{
+    display: block;
+    height: 1em;
+    line-height: 1em;
+    padding: 0px;
+    font-weight: normal;
+    color: @textOrange;
+    text-align: center;
+    margin-bottom: 15px;
+    vertical-align: middle;
+  }
+
+  .cbox-foot{
+    text-align: center;
+    margin-bottom: 15px;
+    .btn{
+     margin: 0 10px;
+     font-size: 12px;
+    }
+  }
+
+}
+
+
+
+.cbox-busy-sign {
+  #cboxLoadedContent{
+    @cbox-busy-sign-height: 25px;
+  
+    form{
+      margin-top: 18px;
+    }
+
+    label{
+      margin-top: 4px;
+      margin-bottom: 6px;
+    }
+
+    .control-label{
+      width: 90px;
+      line-height: 25px;
+    }
+
+    .sign-title {
+      .text{
+        width: 62px;
+      }
+    } 
+
+    .sign-level{
+      .text{
+        width: 41px;
+        margin-right: 5px;
+      }
+    }
+
+    .radio{
+      padding-right: 10px;
+    }
+
+    .error{
+      margin-top: 5px;
+    }
+
+    .cbox-foot{
+      _margin-bottom: 13px;
+    }
+  }  
+}
+.cbox-busy-sign-travel{
+  #cboxLoadedContent{
+    .control-label{
+      padding-left: 5px;
+    }
+  }
+}
+
+/*******************login*/
+.cbox-user-login{
+@cboxLoginbuttonBorderColor: #6E6E6E;  
+@cboxLoginbuttonGradientStart:   #35B2D8;
+@cboxLoginbuttonGradientEnd:     #1D89AA;
+@cboxLoginbuttonHoverGradientStart: #1D89AA;
+@cboxLoginbuttonHoverGradientEnd:   #35B2D8;  
+@cboxLoginbuttonGradient: ~"linear-gradient(to bottom, @{cboxLoginbuttonGradientStart} 0%,@{cboxLoginbuttonGradientEnd} 100%);";
+@cboxLoginbuttonHoverGradient: ~"linear-gradient(to bottom, @{cboxLoginbuttonHoverGradientStart} 0%,@{cboxLoginbuttonHoverGradientEnd} 100%);";  
+  #cboxLoadedContent{
+    form{
+      margin-top: 15px;
+      padding: 0 18px;
+    }
+
+    .control-group{
+      margin-bottom: 12px;
+      text-align: center;
+
+      label{
+        text-align: left;
+        _text-indent: 6px;  
+      }
+
+      input{
+        padding-top: 0px;
+        padding-bottom: 0px;
+        width: 300px;
+        height: 36px;
+        line-height: 36px;
+        margin-bottom: 0px;
+      }
+    }
+
+    .error{
+      margin-top: 15px;
+    }
+
+    .cbox-foot{
+      .clearfix();
+      _margin-bottom: 12px;
+
+      button{
+        margin: 0px;
+        float: left;
+        color: @white;
+        border-color: @cboxLoginbuttonBorderColor;
+        background-color: @cboxLoginbuttonGradientEnd;
+        .gradient(@cboxLoginbuttonGradient);
+        -pie-background: @cboxLoginbuttonGradient;
+        .css3pie;
+        &:hover,
+        &.hover {
+          color: @white;
+          text-decoration: none;
+          .gradient(@cboxLoginbuttonHoverGradient);
+        -pie-background: @cboxLoginbuttonHoverGradient;
+          .box-shadow();
+        }        
+      }
+      .tips{
+        float: right;
+        color: @linkColor;
+        height: 30px;
+        line-height: 30px;
+        a{
+          &:hover{
+            text-decoration:none;
+            color: @textOrange;
+          }
+        }
+      }
+    }
+  }  
+}
+
+/*******************change-pwd*/
+.cbox-change-pwd{
+
+  form{
+    padding-top: 35px;
+  }
+
+  .control-group{
+    height: 36px;
+
+    .control-label{
+      height: 27px;
+      line-height: 27px;
+      width: 112px;
+    }
+
+    .controls{
+      margin-left: 112px;
+
+      input{
+        padding-top: 0px;
+        padding-bottom: 0px;
+        width: 155px;
+        height: 25px;
+        line-height: 25px;
+      }
+    }
+  }
+
+  .error{
+    margin-top: 5px;
+  }
+}
+
+/*******************notitle   notitle-noclose   notitle-noclose-nobutton*/
+.cbox-nt,.cbox-nt-nc,.cbox-nt-nc-nb{
+    #cboxLoadedContent{
+    p{
+      text-align: center;
+      }
+    }      
+}
+.cbox-nt{
+  #cboxLoadedContent{
+    p{
+      height: 40px;
+      line-height: 20px;
+      margin: 30px auto 12px;
+    }
+
+    .btn{
+      margin: 0 35px;
+    }
+  }
+}
+.cbox-nt-nc{
+  #cboxLoadedContent{
+    p{
+      margin: 22px auto 15px;
+    }
+  }
+}
+.cbox-nt-nc-nb{
+  #cboxLoadedContent{
+    p{
+      height: 50px;
+      line-height: 50px;
+    }
+  }  
+}
+
+/*******************reshare*/
+.cbox-reshare{
+  form{
+  text-align: center;
+  position: relative;
+  padding-top: 10px;
+  overflow: hidden;
+
+    textarea{
+      width: 488px;
+      height: 228px;
+      resize: none;
+      margin: 0px auto 15px;
+      _margin-bottom: 23px;
+    }
+
+    .placeholder{
+      text-align: center;
+      vertical-align: middle;
+      display: block;
+      width: 100%;
+      position: absolute;
+      top: 110px;
+      left: 0px;
+      color: @textLightColor;
+      cursor: text;
+    } 
+  }
+}
+
+/*******************insert-note*/
+.cbox-insert-note{
+  #cboxLoadedContent{
+    overflow: hidden;
+
+    ul{
+      margin: 0 0 15px 0;
+      height: 240px;
+      border-bottom: 1px solid @borderColor;
+      overflow-y: auto;
+
+      li{
+        list-style: none;
+        padding-left: 15px;
+        padding-right: 11px;
+        margin-top: 12px;
+        border-bottom: 1px solid @borderColor;
+
+        p{
+          text-align: left;
+          padding-left: 25px;
+          *float: left;
+        }
+
+        span{
+          display: block; 
+          text-align: right;
+          font-size: 12px;
+          color: @textLightColor;
+        }
+
+        input{
+          float: left;
+          width: 12px;
+          height: 12px;
+        }
+      }
+    }  
+  }  
+}
+
+@media @ie6-8 {
+
+  #cboxLoadedContent{
+    .radio{
+      float: none;
+      min-width: 42px;
+      padding-right: 5px; 
+
+      input{
+        margin-top: 0px;
+      }
+    }   
+
+    .error{
+      *margin-bottom: 12px;
+      _margin-bottom: 11px;
+    }
+
+    .cbox-foot{
+      text-align: center;
+      margin-bottom: 5px;
+      *margin-bottom: 5px;
+      _margin-bottom: 15px;
+      
+      .btn{
+       _width: auto;
+      }
+    }
+  }
+
+
+  .cbox-change-pwd{
+    #cbox-change-pwd{
+      width: 310px;
+    }
+
+    form{
+      padding-top: 25px;
+    }
+  }
+
+  .cbox-nt{
+    #cboxLoadedContent{
+      p{ 
+        margin: 20px auto 12px;
+        _margin-top: 33px;
+      }
+    }
+  }
+
+  .cbox-nt-nc{
+    #cboxLoadedContent{
+      p{
+        margin: 12px auto 15px;
+        _margin-top: 22px;
+      }
+    }
+  }
+
+  .cbox-nt-nc-nb{
+    #cboxLoadedContent{
+      p{
+        height: 30px;
+        line-height: 30px;
+        _height: 50px;
+        _line-height: 50px;        
+      }
+    }  
+  }  
+}

@@ -1,0 +1,38 @@
+hr {
+  border: 0 none;
+  height: 1px;
+  background-color: @borderColor;
+  width: 100%;
+}
+
+hr,
+div.hr {
+  margin: 20px 0;
+}
+
+div.hr {
+  height: 5px;
+  background-color: transparent;
+  overflow: hidden;
+
+  &:after {
+    @height: 13px;
+
+    content: "";
+    display: block;
+    width: 100%;
+    height: @height;
+    position: relative;
+    top: -@height - 1px;
+    border-radius: ~"1000px / @{height}";
+    box-shadow: 0 0 8px #000;
+  }
+
+  @media @ie6-8 {
+    background: url(/assets/img/hr-bg.png) 50% 0 no-repeat;
+
+    &:after {
+      display: none;
+    }
+  }
+}

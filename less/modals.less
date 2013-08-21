@@ -1,0 +1,219 @@
+@outer: 25px;
+@radius: 5px;
+
+@title-height: 18px;
+@title-padding: 13px;
+
+#cboxOverlay{
+  background: #fff;
+  _position: absolute;
+  _left: 0;
+  _top: 0;
+  _height: ~"expression(eval(document.documentElement.scrollHeight))";
+}
+
+#colorbox {
+  outline: 0;
+  .border-radius(@radius);
+  .box-shadow(~"0 0 15px rgba(0, 0, 0, 0.2)");
+}
+
+#cboxTopLeft,
+#cboxTopCenter,
+#cboxTopRight,
+#cboxBottomLeft,
+#cboxBottomCenter,
+#cboxBottomRight,
+#cboxMiddleLeft,
+#cboxMiddleRight {
+  display: none;
+
+  @media @ie6-8 {
+    display: block;
+  }
+}
+
+#cboxContent{
+  background: #fff;
+  overflow: hidden;
+  .border-radius(@radius);
+}
+
+.cboxIframe{
+  background: #fff;
+}
+
+#cboxError{
+  padding: 50px;
+  margin: 3px;
+}
+
+
+// #cboxCurrent{}
+#cboxLoadingOverlay{
+  background: #fff url(/assets/img/loading.gif) no-repeat 5px 5px;
+}
+
+/* these elements are buttons, and may need to have additional styles reset to avoid unwanted base styles */
+// #cboxPrevious, #cboxNext, #cboxSlideshow, #cboxClose {}
+
+/* avoid outlines on :active (mouseclick), but preserve outlines on :focus (tabbed navigating) */
+// #cboxPrevious:active, #cboxNext:active, #cboxSlideshow:active, #cboxClose:active {}
+
+// #cboxSlideshow{}
+// #cboxPrevious{}
+// #cboxNext{}
+#cboxClose{
+  .icon-cancel;
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  line-height: 12px;
+  right: 10px;
+  top: 10px;
+  font-size: 12px;
+  color: #bcbcbc;
+
+  &:hover {
+    color: @linkColor;
+    text-decoration: none;
+  }
+
+  @media @ie6-8 {
+    right: 10px;
+    top: 0px;
+    _top: 10px;
+  }
+}
+
+.noclose #cboxClose {
+  display: none !important;
+}
+
+#cboxTitle {
+  display: none !important;
+}
+
+.showtitle {
+
+  #cboxClose {
+    top: 17px;
+
+    @media @ie6-8 {
+      right: 10px;
+      top: 5px;
+
+      _top: 17px;
+    }
+  }
+
+  #cboxTitle {
+    display: block !important;
+    float: none !important;
+    text-align: center;
+    font-size: @title-height;
+    line-height: @title-height;
+    height: @title-height;
+    width: 100%;
+    background-color: #fbfbfb;
+    padding-top: @title-padding;
+    padding-bottom: @title-padding;
+    border-bottom: 1px solid #D6D6D6;
+    .border-radius(@radius @radius 0 0);
+    .box-shadow(~"0 0 3px #e8e8e8");
+
+    @media @ie6-8 {
+      padding-top: 2px;
+      padding-bottom: @title-padding - 4;
+      _padding-top: @title-padding + 2;
+    }
+  }
+}
+
+@media @ie6-8 {
+  #cboxContent,
+  #cboxTitle {
+    margin-left: -11px;
+    margin-right: -11px;
+    padding-left: 11px;
+    padding-right: 11px;
+
+    _margin-left: 0;
+    _margin-right: 0;
+    _padding-left: 0;
+    _padding-right: 0;
+  }
+
+  #cboxLoadedContent{
+    margin-left: -11px;
+    margin-right: -11px;
+
+    _margin-left: 0;
+    _margin-right: 0;
+  }
+
+  #cboxTopLeft {
+    width: @outer;
+    height: @outer;
+    background: url(/assets/img/border1.png) no-repeat 0 0;
+    _background: none;
+  }
+
+  #cboxTopCenter {
+    height: @outer;
+    background: url(/assets/img/border1.png) repeat-x 0 -50px;
+    _background: none;
+  }
+
+  #cboxTopRight {
+    width: @outer;
+    height: @outer;
+    background: url(/assets/img/border1.png) no-repeat -25px 0;
+    _background: none;
+  }
+
+  #cboxBottomLeft {
+    width: @outer;
+    height: @outer;
+    background: url(/assets/img/border1.png) no-repeat 0 -25px;
+    _background: none;
+  }
+
+  #cboxBottomCenter {
+    height: @outer;
+    background: url(/assets/img/border1.png) repeat-x 0 -75px;
+    _background: none;
+  }
+
+  #cboxBottomRight {
+    width: @outer;
+    height: @outer;
+  background: url(/assets/img/border1.png) no-repeat -25px -25px;
+    _background: none;
+  }
+
+  #cboxMiddleLeft {
+    width: @outer;
+    background: url(/assets/img/border2.png) repeat-y 0 0;
+    _background: none;
+  }
+
+  #cboxMiddleRight {
+    width: @outer;
+    background: url(/assets/img/border2.png) repeat-y -25px 0;
+    _background: none;
+  }
+
+  .showtitle {
+    #cboxTopLeft,
+    #cboxTopCenter,
+    #cboxTopRight {
+      background-image: url(/assets/img/border-title.png);
+      _background: none;
+    }
+  }
+
+  #cboxContent {
+    _border: 3px solid #888;
+  }
+}

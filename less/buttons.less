@@ -1,0 +1,137 @@
+@buttonGradient: ~"linear-gradient(to bottom, @{buttonGradientStart} 0%,@{buttonGradientEnd} 100%);";
+@buttonHoverGradient: ~"linear-gradient(to bottom, @{buttonHoverGradientStart} 0%,@{buttonHoverGradientEnd} 100%);";
+
+@buttonHoverShadow: ~"inset -3px 3px 1px -2px rgba(255, 255, 255, 0.5), inset 3px -3px 1px -3px rgba(100, 100, 100, 0.5)";
+@buttonActiveShadow: ~"inset 3px 3px 1px -2px rgba(100, 100, 100, 0.5), inset -3px -3px 2px -3px rgba(255, 255, 255, 0.5)";
+
+@disabledTextColor: lighten(@textColor, 30%);
+
+.btn {
+  position: relative;
+  display: inline-block;
+  color: @textColor;
+  background-color: @buttonGradientStart;
+  line-height: 20px;
+  padding: @btnPaddingY @btnPaddingX;
+  vertical-align: middle;
+  font-family: @baseFontFamily;
+
+  .border-radius(@buttonRadius);
+  border: 1px solid @buttonBorderColor;
+  .gradient(@buttonGradient);
+
+  &:hover,
+  &.hover {
+    color: @linkColor;
+    background-color: lighten(@buttonGradientStart, 10%);
+    .gradient(@buttonHoverGradient);
+    .box-shadow(@buttonHoverShadow);
+  }
+
+  &:active,
+  &.active {
+    .box-shadow(@buttonActiveShadow);
+  }
+
+  &.disabled {
+    color: @disabledTextColor;
+    background-color: @buttonGradientEnd;
+    background-image: none;
+    border-color: lighten(@buttonBorderColor, 6%);
+    cursor: not-allowed;
+
+    &:hover,
+    &.hover {
+      color: @disabledTextColor;
+      background-color: @buttonGradientEnd;
+      background-image: none;
+      .box-shadow(~"");
+    }
+  }
+}
+
+@buttonPremaryGradient: ~"linear-gradient(to bottom, @{buttonPremaryGradientStart} 0%,@{buttonPremaryGradientEnd} 100%);";
+@buttonPremaryHoverGradient: ~"linear-gradient(to bottom, @{buttonPremaryHoverGradientStart} 0%,@{buttonPremaryHoverGradientEnd} 100%);";  
+
+.btn-primary {
+  color: @white;
+  border-color: @buttonPremaryBorderColor;
+  background-color: @buttonPremaryGradientEnd;
+  .gradient(@buttonPremaryGradient);
+
+  &:hover,
+  &.hover {
+    color: @white;
+    .gradient(@buttonPremaryHoverGradient);
+    .box-shadow(~"");
+  }        
+}
+
+a.btn {
+  text-decoration: none;
+  &:hover,
+  &.hover,
+  &:active,
+  &.active {
+    text-decoration: none;
+  }
+}
+
+@media @ie6-8 {
+  .btn {
+    -pie-background: @buttonGradient;
+    .css3pie;
+
+    &:hover,
+    &.hover {
+      -pie-background: @buttonHoverGradient;
+    }
+
+    &.disabled {
+      -pie-background: none;
+    }
+  }
+
+  .btn-primary {
+    -pie-background: @buttonPremaryGradient;
+    .css3pie;
+
+    &:hover,
+    &.hover {
+      color: @white;
+      -pie-background: @buttonPremaryHoverGradient;
+    }
+
+  }
+}
+
+@media @ie6-7 {
+  a.disabled {
+    color: @disabledTextColor;
+
+    &:hover {
+      color: @disabledTextColor;
+    }
+  }
+
+  input,
+  button {
+    &.btn {
+      padding-top: (@btnPaddingY - 1);
+      padding-bottom: (@btnPaddingY - 3);
+    }
+
+    &:hover,
+    &.hover {
+      *color: @linkColor;   // IE6,7 鼠标悬停文字颜色
+      // text-decoration: none;
+    }
+
+    &.btn-primary {
+      &:hover,
+      &.hover {
+        *color: @white;
+      }
+    }
+  }
+}

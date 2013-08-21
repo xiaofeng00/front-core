@@ -1,0 +1,28 @@
+@menu-height: 32px;
+
+.btn-group {
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  list-style: none;
+  margin: 0;
+  top: 100%;
+  left: 0;
+  
+  border: 1px solid @borderColor;
+  border-top: 0 none;
+  background-color: @background;
+
+  a {
+    display: block;
+    padding: 0 @btnPaddingX;
+    line-height: @menu-height;
+    height: @menu-height;
+    overflow: hidden;
+  }
+}

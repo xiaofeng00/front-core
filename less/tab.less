@@ -1,0 +1,87 @@
+@tabHeight: 30px;
+
+
+.tab{
+  width: 600px;
+  height: @tabHeight;
+  position: relative;
+  margin: 0px;
+  background: url(/assets/img/tab-bg.png) 0px 27px repeat-x;
+  overflow: hidden;
+
+  li{
+  	float: left;
+  	list-style: none;
+  	width: 82px;
+  	text-align: center;
+  	margin-right: 5px;
+    overflow: hidden;
+    background: #e8e8e8;
+
+  	a{
+  	  display: block;
+  	  color: @textDarkColor;
+      height: @tabHeight - 3px;
+      line-height: @tabHeight - 3px;
+      
+  	  &:hover{
+  	  	color: @linkColor;
+  	  	text-decoration: none;
+  	  }
+  	}
+
+  }
+  .active{
+    background: url(/assets/img/tab-bg.png) 0px -3px no-repeat;
+    color: @linkColor;
+    font-weight: bold;
+    overflow: visible;
+    
+    a{
+      color: @linkColor;	
+      height: @tabHeight + 2px;
+
+      &:hover{
+        color: @textOrange;     
+      }   	
+    }
+  }
+
+}
+
+.tab-white {
+  position: relative;	
+  border: 0px;
+  background: none;
+  overflow: visible;
+  border-bottom: 1px solid @borderColor;
+
+  li{
+  	background: none;	
+    margin: 0px;
+    height: @tabHeight - 1px;
+    line-height: @tabHeight;
+    border: 1px solid @background;
+    border-bottom: 0px;   
+    _position: relative;
+    _top: 1px;
+
+    a{
+      line-height: @tabHeight;
+    }
+  }	
+  .active{
+    border: 1px solid @borderColor;
+    border-bottom: 0px;
+
+  	a{
+  	  background: @white;
+  	  font-weight: normal;
+  	  color: @textDarkColor;
+      
+      &:hover{
+        color: @linkColorHover;     
+      }     	  
+  	}
+  }
+}
